@@ -1,0 +1,170 @@
+[
+ [
+  "1 auth + wallet",
+  "PASS",
+  {
+   "asset_symbol": "USD",
+   "balance": "99.79828831",
+   "available_balance": "99.79828831",
+   "order_margin": "0",
+   "position_margin": "0",
+   "blocked_margin": "0"
+  }
+ ],
+ [
+  "2 open positions",
+  "PASS",
+  []
+ ],
+ [
+  "3 synthetic pick + real spreads",
+  "PASS",
+  {
+   "spot": 80593.74805825,
+   "expiry": "271126",
+   "days": 33.2,
+   "strike": 81000.0,
+   "call": "C-BTC-81000-271126",
+   "call_id": 197111,
+   "call_bid_ask": [
+    3705.0,
+    3800.0
+   ],
+   "put": "P-BTC-81000-271126",
+   "put_id": 197105,
+   "put_bid_ask": [
+    3695.0,
+    3790.0
+   ],
+   "fixed_apr_mid_%": 5.69,
+   "fixed_apr_crossing_spread_%": 6.98,
+   "spread_cost_%_notional": 0.118
+  }
+ ],
+ [
+  "4 short put allowed? (far limit, cancelled)",
+  "PASS",
+  {
+   "accepted": "open",
+   "order_margin_before": "0",
+   "order_margin_after": "4.03081"
+  }
+ ],
+ [
+  "5 heartbeat create+ack",
+  "PASS",
+  {
+   "heartbeat_timestamp": 1792915899629,
+   "process_enabled": true
+  }
+ ],
+ [
+  "6 margin mode (read profile)",
+  "PASS",
+  {
+   "margin_mode": "isolated",
+   "id": 57357511,
+   "is_sub_account": false
+  }
+ ],
+ [
+  "7a sell 1 put IOC (fresh book)",
+  "PASS",
+  {
+   "top": 3695.0,
+   "fill": "3695",
+   "fee": "0.00856145"
+  }
+ ],
+ [
+  "7b buy 1 call IOC (fresh book)",
+  "PASS",
+  {
+   "top": 3800.0,
+   "fill": "3800",
+   "fee": "0.00856145"
+  }
+ ],
+ [
+  "7c short 1 perp IOC",
+  "PASS",
+  {
+   "top": 80590.5,
+   "fill": "80590.5",
+   "fee": "0.04279357"
+  }
+ ],
+ [
+  "8 locked fixed rate from real fills",
+  "PASS",
+  {
+   "F": 81105.0,
+   "perp": 80590.5,
+   "locked_fixed_apr_%": 7.02,
+   "edge_vs_10.95_%_over_period": 0.358
+  }
+ ],
+ [
+  "9 positions: margin + liquidation",
+  "PASS",
+  [
+   {
+    "product_symbol": "BTCUSD",
+    "size": -1,
+    "entry_price": "80590.5",
+    "margin": "8.05905",
+    "liquidation_price": "88448.07375"
+   },
+   {
+    "product_symbol": "P-BTC-81000-271126",
+    "size": -1,
+    "entry_price": "3695",
+    "margin": "7.72581",
+    "liquidation_price": "7322.729"
+   },
+   {
+    "product_symbol": "C-BTC-81000-271126",
+    "size": 1,
+    "entry_price": "3800",
+    "margin": "0",
+    "liquidation_price": null
+   }
+  ]
+ ],
+ [
+  "10 wallet change from position",
+  "PASS",
+  {
+   "before": {
+    "asset_symbol": "USD",
+    "balance": "99.79828831",
+    "available_balance": "99.79828831",
+    "order_margin": "0",
+    "position_margin": "0",
+    "blocked_margin": "0"
+   },
+   "after": {
+    "asset_symbol": "USD",
+    "balance": "99.63337184",
+    "available_balance": "83.77573255992",
+    "order_margin": "0",
+    "position_margin": "15.78486",
+    "blocked_margin": "15.85763928008"
+   }
+  }
+ ],
+ [
+  "11 close everything (reduce-only)",
+  "PASS",
+  [
+   "closed",
+   "closed",
+   "closed"
+  ]
+ ],
+ [
+  "12 positions after close",
+  "PASS",
+  []
+ ]
+]

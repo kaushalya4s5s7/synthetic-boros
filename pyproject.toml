@@ -1,0 +1,10 @@
+[project]
+name = "synthboros"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["live: hits Delta testnet (needs keys)"]
+addopts = "-m 'not live'"

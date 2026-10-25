@@ -1,0 +1,15 @@
+.env
+.venv/
+**/.venv/
+__pycache__/
+data/
+node_modules/
+apps/web/.next/
+apps/web/out/
+*.sqlite
+.pytest_cache/
+Algorithmic-Trading-Hackathon.pdf
+Screenshot*.png
+tokeniq-prep.html
+idea.md
+apps/web/next-env.d.ts
