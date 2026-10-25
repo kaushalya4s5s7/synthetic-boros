@@ -33,7 +33,7 @@ export default function Landing() {
     <div className="lp-bg">
       <div className="lp-sheet">
         <header className="lp-header">
-          <Link href="/" className="lp-logo">Synthetic Boros</Link>
+          <Link href="/" className="lp-logo">Fixed Funding</Link>
           <nav className="lp-nav" aria-label="Sections">
             <a href="#how">How it works</a>
             <a href="#guard">Fee guard</a>
@@ -48,12 +48,12 @@ export default function Landing() {
         </header>
 
         <section className="lp-hero">
-          <span className="lp-eyebrow">Built on Delta Exchange</span>
-          <h1>Lock a fixed rate. <span className="lp-faint">Earn Delta’s floating funding.</span></h1>
+          <span className="lp-eyebrow">Fixed-rate funding · built on Delta Exchange</span>
+          <h1>Get a fixed rate on Delta funding. <span className="lp-faint">Locked today, for weeks.</span></h1>
           <p className="lp-hero-support">
-            Delta pays funding on perpetual futures every 8 hours. Options let you lock a fixed rate below it.
-            Synthetic Boros captures the difference, hedged against BTC’s price, and refuses any trade where
-            fees would eat the gain.
+            Funding on Delta perpetuals resets every 8 hours, so what you earn keeps changing. We lock a fixed rate for
+            you with Delta’s own options, hedge out the price, and earn the floating rate on top. The bot only does it
+            when the numbers still work after every fee.
           </p>
           <div className="lp-hero-buttons">
             <Link className="btn primary lg" href="/overview">Open console</Link>
@@ -80,6 +80,31 @@ export default function Landing() {
                 </div>
                 <div className="lp-caption">Real fill on Delta testnet, 25 Oct 2026 · net BTC exposure 0</div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="lp-section" id="fixed">
+          <div className="lp-split">
+            <div>
+              <span className="lp-eyebrow">Fixed vs floating</span>
+              <h2>One rate you know, instead of one that moves every 8 hours.</h2>
+            </div>
+            <p className="lp-support">
+              We turn Delta’s floating funding into a fixed-rate product: the rate is set the moment you enter and
+              holds until the options expire. When floating runs above it, you keep the difference.
+            </p>
+          </div>
+          <div className="lp-compare">
+            <div className="lp-compare-card">
+              <span className="lp-kicker">Floating · Delta today</span>
+              <b>−3.8% to 11%</b>
+              <p>BTC funding over the last 90 days. Resets every 8 hours; can turn negative without warning.</p>
+            </div>
+            <div className="lp-compare-card lp-compare-on">
+              <span className="lp-kicker">Fixed · with us</span>
+              <b>One locked rate</b>
+              <p>Set from live option prices when you enter (about 7% a year for 33 days on BTC this week) and held until expiry.</p>
             </div>
           </div>
         </section>
@@ -218,7 +243,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="lp-legal">Testnet only. Not investment advice.</div>
-          <div className="lp-wordmark" aria-hidden="true">Boros</div>
+          <div className="lp-wordmark" aria-hidden="true">Fixed</div>
         </footer>
       </div>
     </div>

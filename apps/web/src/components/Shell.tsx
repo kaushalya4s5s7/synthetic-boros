@@ -26,7 +26,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <>
       <header className="topbar">
-        <Link href="/" className="logo">Synthetic Boros</Link>
+        <Link href="/" className="logo">Fixed Funding</Link>
         <div className="topbar-right">
           <span className="pill hide-sm" title="Orders go to the trading venue; funding for decisions is read from the live market">
             {env} · funding from {src}

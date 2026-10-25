@@ -180,3 +180,9 @@
   background-image: radial-gradient(rgba(120, 160, 210, 0.72) 1.2px, transparent 1.2px); background-size: 5px 5px;
   -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: -0.2em;
 }
+.lp-compare { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .lp-compare { grid-template-columns: 1fr 1fr; } }
+.lp-compare-card { border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.lp-compare-card b { font-family: var(--display); font-weight: 400; font-size: 32px; }
+.lp-compare-card p { margin: 0; color: var(--muted); font-size: 15px; }
+.lp-compare-on { border-color: var(--blue); box-shadow: inset 3px 0 0 var(--blue); }

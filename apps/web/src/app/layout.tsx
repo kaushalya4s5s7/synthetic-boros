@@ -6,7 +6,7 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "500"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Synthetic Boros",
+  title: "Fixed Funding",
   description: "Lock a fixed rate with options, earn Delta's floating funding, hedged against BTC price.",
 };
 
