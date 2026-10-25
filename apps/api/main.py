@@ -7,6 +7,7 @@ import threading
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -130,7 +131,18 @@ def create_app(bot: Bot | None = None, start_loop: bool = True) -> FastAPI:
         stop.set()
 
     app = FastAPI(title="Synthetic Boros", lifespan=lifespan)
+    @app.middleware("http")
+    async def public_is_read_only(request, call_next):
+        # Requests that come in through the public tunnel carry Cloudflare's header. They may look, never act:
+        # entering, closing, settings and rehearsal stay with the local console on this machine.
+        if "cf-connecting-ip" in request.headers and request.method not in ("GET", "HEAD", "OPTIONS"):
+            return JSONResponse({"ok": False, "message": "Public view is read-only. Trading is controlled from "
+                                 "the operator's console.", "error": {"code": "read_only", "message": "read-only"}},
+                                status_code=403)
+        return await call_next(request)
+
     app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+                       allow_origin_regex=r"https://[a-z0-9-]+\.vercel\.app",
                        allow_methods=["*"], allow_headers=["*"])
     errors.install(app)
 
