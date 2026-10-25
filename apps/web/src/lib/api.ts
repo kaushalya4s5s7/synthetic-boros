@@ -159,7 +159,8 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
   try {
     res = await fetch(`${API_URL}/api${path}`, {
       ...init,
-      headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+      // ngrok-skip-browser-warning: free ngrok tunnels serve a warning page to browsers without it
+      headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "1", ...(init?.headers || {}) },
       cache: "no-store",
     });
   } catch {
